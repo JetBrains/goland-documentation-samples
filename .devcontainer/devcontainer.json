@@ -1,0 +1,14 @@
+{
+  "name": "GoProject",
+  "dockerFile": "Dockerfile",
+  "appPort": [
+    "8000:8000"
+  ],
+  "postCreateCommand": "go mod download",
+  "containerEnv": {
+    "MY_VARIABLE": "1"
+  },
+  "shutdownAction": "none",
+  "privileged": true,
+  "capAdd": []
+}

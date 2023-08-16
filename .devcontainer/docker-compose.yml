@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    hostname: dev
+    environment:
+        GOSAMPLE_DATABASE_PASSWORD: 123456
+
+  db:
+    build:
+      context: .
+      dockerfile: db.Dockerfile
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+volumes:
+  db_data:
